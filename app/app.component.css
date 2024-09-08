@@ -1,0 +1,10 @@
+.user-container{
+    background-image: url('../app/image/image.png');
+    background-size: cover; /* Ensures the image covers the entire background */
+    background-position: center; 
+    height: 100vh; 
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

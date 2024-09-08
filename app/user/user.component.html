@@ -1,0 +1,167 @@
+
+
+<div class="profile-container container"> 
+    <h2>User Profile</h2>
+    <form [formGroup]="myProfileForm" (ngSubmit)="onSubmit()">
+        <div class="row">
+                <div class="col-4 ml-3">
+                    <label for="firstName">First Name:</label>
+                    <input type="text" id="firstName" name="firstName" 
+                     formControlName="fName"   
+                    required>
+                    <div *ngIf="myProfileForm.get('fName')?.invalid && myProfileForm.get('fName')?.touched" class="text-danger">
+                        First Name is required.
+                    </div>
+                </div>
+                <div class="col-4 ml-3">
+                    <label for="lastName">Last Name:</label>
+                    <input type="text" id="lastName" name="lastName"
+                    formControlName="lName"   
+                    required>
+                    <div *ngIf="myProfileForm.get('lName')?.invalid && myProfileForm.get('lName')?.touched" class="text-danger">
+                        Last Name is required.
+                    </div>
+                </div>
+                <div class="col-4"></div>
+        </div>
+       
+        <div class="">
+            <div class="row">
+            <div class="form-group" style="margin-top: 5%;">
+                <label for="street">Street Address:</label>
+                <input type="text" id="street" name="street" 
+                formControlName="streetName"
+                required>
+                <div *ngIf="myProfileForm.get('streetName')?.invalid && myProfileForm.get('streetName')?.touched" class="text-danger">
+                    Street Address is required.
+                </div>
+            </div>
+    
+            <div class="form-group">
+                <label for="city"></label>
+                <input type="text" id="city" name="city" 
+                formControlName="cityName"
+                required>  
+                <div *ngIf="myProfileForm.get('cityName')?.invalid && myProfileForm.get('cityName')?.touched" class="text-danger">
+                    City is required.
+            </div>  
+            </div>
+           
+            <div class="col-4">
+                <label for="state"></label>
+                <input type="text" id="state" name="state" 
+                formControlName="stateName"
+                required>
+                <div *ngIf="myProfileForm.get('stateName')?.invalid && myProfileForm.get('stateName')?.touched" class="text-danger">
+                    State is required.
+                </div>
+            </div>
+            <div class="col-4 ml-4">
+                <label for="zipcode"></label>
+                <input type="text" id="zipcode" name="zipcode" 
+                formControlName="zip"
+                required>
+                <div *ngIf="myProfileForm.get('zip')?.invalid && myProfileForm.get('zip')?.touched" class="text-danger">
+                    Zipcode is required.
+                </div>
+            </div>
+        </div>
+        </div>
+            <div class="row mt-2">
+                <div class="col-2">
+                    <label>Gender:</label>
+                </div>
+            <div class="">
+                <div class="row" >
+                     <div class="col-3" *ngFor="let item of chkGender">
+                    <input type="radio" id="{{item.value}}" name="gender" value="{{item.value}}"
+                    formControlName="gender" required>
+                    {{item.value}}
+                    </div>
+                </div>
+            </div>
+            <label>Hobbies:</label>
+        <div>
+            <div class="">
+                <div class="row" >
+                    <div class="col-4" *ngFor="let item of chkValue">
+                    <input class="" 
+                    formControlName="hobbies" 
+                    type="checkbox" id="reading" 
+                    name="{{item.value}}" 
+                    value="{{item.value}}"
+                    (change)="getHobbies($event)"
+                   >
+                    {{item.value}}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="favPlace">Favorite Place:</label>
+            <select id="favPlace" formControlName="favPlace" name="favPlace" required>
+                <option value="" disabled selected>Select your favorite place</option>
+                <option value="Prantij">Prantij</option>
+                <option value="Ellicott City">Ellicott City</option>
+                <option value="New York">New York</option>
+                <option value="Europe">Europe</option>
+                <option value="desert">Desert</option>
+            </select>
+        </div>
+      
+        <!-- <div>
+            <div class="row"> 
+                <span>Would you like to preview your info?</span>
+                <button class="primary" (click)="prevInfo()">Preview Information</button>
+            </div>
+                  
+        </div> -->
+        </div> 
+        <button type="submit" class="btn btn-secondary">Save Profile</button> 
+        <!-- <div *ngIf="prevTextArea">
+            <div class="row">
+                <div class="col-6">
+                    <strong>First Name</strong> {{firstNameVal}}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <strong>Last Name</strong>{{lastNameVal}}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <strong>Street Name </strong>{{streetName}}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <strong>City Name </strong>{{cityName}}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <strong>State Name </strong>{{stateName}}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <strong>Zipcode </strong>{{zip}}
+                </div>
+            </div>
+        </div> -->
+    </form>
+</div>
+<!-- <div class="container">
+    <div class="row">
+        <div class="col-6" style="background-color: red;">
+            first
+        </div>
+        <div class="col-4" style="background-color: blue;">
+            second
+        </div>
+        <div class="col-2" style="background-color: yellow;">
+            Third
+        </div>
+    </div>
+</div> -->
